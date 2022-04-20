@@ -29,7 +29,11 @@ const Home = () => {
    <Appbar/>
      
   
-     <Form currentId={currentId} setCurrentId={setCurrentId} />
+   
+       <Form currentId={currentId} setCurrentId={setCurrentId}  />
+    
+  
+    
      {/* <Posts posts={posts} /> */}
      {
        posts.length>0 &&(
@@ -38,7 +42,7 @@ const Home = () => {
          posts.map((x,i)=>(
           <div key={x._id} >
           {
-            (data?.result?.googleId===x?.creator||data?.result?._id===x?.creator||data?._id  )&&(
+            (data?.result?.googleId===x?.creator||data?.result?._id===x?.creator||data?._id=== x?.creator )&&(
               <div className={`card card${i%10+1}`}  >
             <div className='single_card'>
                <Posts key={x._id} x={x} currentId={currentId} data={data} setCurrentId={setCurrentId} />

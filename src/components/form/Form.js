@@ -11,11 +11,12 @@ import './form.css'
 import { signout } from '../../redux/actions/userAction'
 import { useEffect } from 'react'
 
-const Form = ({currentId,setCurrentId}) => {
+const Form = ({currentId,setCurrentId,x}) => {
     const [postData,setPostData] = useState({title:'',note:''})
     const dispatch=useDispatch()
-    const [data,setData] = useState(JSON.parse(localStorage.getItem('profile')))
-    //console.log(data,'dataaa');
+    const data = useState(JSON.parse(localStorage.getItem('profile')))
+    const posts = useSelector(state=>state.alldata)
+    console.log(posts,'dataaa');
     const history = useNavigate()
     const handleSubmit=(e)=>{
         e.preventDefault()
@@ -56,7 +57,13 @@ const Form = ({currentId,setCurrentId}) => {
       <input   id="outlined-basic"  label="Enter Your Item"  value={postData.note} variant="outlined" onChange={(e)=>setPostData({...postData,note:e.target.value})}/>
   */}
       </div>
-     <Button disabled={(postData.title==='' || postData.note==='')} type='submit'  variant="contained" >{currentId?<EditIcon />:'submit'}</Button>
+      { 
+       data&&
+        <Button disabled={(postData.title==='' || postData.note==='')} type='submit'  variant="contained" >{currentId?<EditIcon />:'submit'}</Button>
+      
+      
+      }
+     
       
       
           

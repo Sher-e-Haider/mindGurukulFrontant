@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Button } from '@material-ui/core'
-// import { signin, signup } from '../redux/actions/action'
 import {useDispatch, useSelector} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
 import './Auth.css'
@@ -9,8 +8,6 @@ import Appbar from '../components/appbar/Appbar'
 import GoogleAuth from './googleAuth'
 import {toast,ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useEffect } from 'react'
-import { Grid } from '@material-ui/core'
 import useStyles from './style';
 
 const initialData = {name:'',password:'',confirmPassword:'',email:''}
@@ -22,6 +19,8 @@ const Auth = () => {
     let userSignin = useSelector(state=>state.userSignin)
     console.log(userSignin,'user');
     let {error,loading} = userSignin
+    loading=true
+    
     const dispatch = useDispatch()
     const history = useNavigate()
     // console.log(formData);
@@ -37,10 +36,11 @@ const Auth = () => {
          
          if(formData.password===formData.confirmPassword){
             dispatch(signup(formData.name,formData.email,formData.password,history))
+            return toast.success('successfully created account, please signin')
          }if(formData.password!==formData.confirmPassword){
           return toast.error('password and confirmPassword are not equal')
          }
-         else{
+         if(!loading){
            return toast.error(`user already exists with this ${formData.email}`)
          }
           
