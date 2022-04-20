@@ -1,0 +1,18 @@
+
+.text{
+    border: 2px solid rgb(111, 105, 105);
+    padding: 9px;
+    border-radius: 4px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: -4px 4px 10px rgba(0,0,0,0.2);
+}
+.form_displays{
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+    margin-top: 20px;
+    padding: 10px;
+   
+}

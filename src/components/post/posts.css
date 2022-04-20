@@ -1,0 +1,44 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400&family=Grape+Nuts&display=swap');
+
+.title{
+    text-align: center;
+    font-family: 'Fredoka', sans-serif;
+}
+.note{
+    margin:10px;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Grape Nuts', cursive;
+    
+}
+.react_icon{
+    background-color:transparent;
+    border:none;
+    color: red;
+    font-size: 20px;
+    position: absolute;
+    right: -9px;
+    bottom:-10px;
+    
+   
+}
+.content_note{
+    display: flex;
+    position: relative;
+    
+}
+.cards_content{
+    position: relative;
+    
+}
+
+.moreIcon{
+    background-color:transparent;
+    border:none;
+    position: absolute;
+    right: 0;
+    top: -8px;
+    font-size: 25px;
+    color:rgb(59, 60, 58);
+}
