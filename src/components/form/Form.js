@@ -16,7 +16,7 @@ const Form = ({currentId,setCurrentId,x}) => {
     const dispatch=useDispatch()
     const data = useState(JSON.parse(localStorage.getItem('profile')))
     const posts = useSelector(state=>state.alldata)
-    console.log(posts,'dataaa');
+    console.log(data,'dataaa');
     const history = useNavigate()
     const handleSubmit=(e)=>{
         e.preventDefault()
@@ -58,7 +58,7 @@ const Form = ({currentId,setCurrentId,x}) => {
   */}
       </div>
       { 
-       data&&
+       data[0]&&
         <Button disabled={(postData.title==='' || postData.note==='')} type='submit'  variant="contained" >{currentId?<EditIcon />:'submit'}</Button>
       
       
