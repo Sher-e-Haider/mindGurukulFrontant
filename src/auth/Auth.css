@@ -50,6 +50,18 @@ input{
     color:rgb(121, 30, 232);
 }
 
+.load{
+    position:absolute;
+    
+    top: 180px;
+    left: 180px;
+    padding:2px;
+   color: red;;
+   
+
+    
+}
+
 @media screen and (max-width:490px){
     input{
         width:300px;

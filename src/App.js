@@ -5,6 +5,8 @@ import Home from './components/home/Home';
 import Auth from './auth/Auth';
 
 function App() {
+  const data =JSON.parse(localStorage.getItem('profile'))
+  console.log(data,'app.js');
   return (
     <div className="main">
        <BrowserRouter>

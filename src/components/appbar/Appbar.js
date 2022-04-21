@@ -3,21 +3,19 @@ import * as React from 'react';
  import Box from '@mui/material/Box';
  import Toolbar from '@mui/material/Toolbar';
  import Typography from '@mui/material/Typography';
-    import Button from '@mui/material/Button';
+  import Button from '@mui/material/Button';
  import IconButton from '@mui/material/IconButton';
  import MenuIcon from '@mui/icons-material/Menu';
   import useStyles from './style'
  import { useDispatch } from 'react-redux';
- import { useNavigate,useLocation } from 'react-router-dom';
-  import { useState } from 'react';
-  import { useEffect } from 'react';
-  import './appbar.css'
+ import { useNavigate } from 'react-router-dom';
+import './appbar.css'
 import { signout } from '../../redux/actions/userAction';
 
  const Appbar = ()=> {
      const data =JSON.parse(localStorage.getItem('profile'))
      
-     //console.log(data,'homeDAta');
+    
     const classes = useStyles();
     const dispatch=useDispatch()
     const history=useNavigate()
@@ -35,9 +33,14 @@ const logout=() => {
   history('/auth',{replace:true})
  console.log('logout');
 }
+
+
+  
+ 
+
   return (
     <div className="appbar">
-
+    
    
     <Box sx={{ flexGrow: 1 }}>
       <AppBar className={classes.AppBar} position="static" >
@@ -58,6 +61,7 @@ const logout=() => {
             Soch
           </Typography>) 
           }
+        
 
           { data?.result?._id?(
             <Typography className={classes.para} xs={12} sm={6} variant="h6" component="div" sx={{ flexGrow: 1 }}>

@@ -19,16 +19,16 @@ export const userSigninReducer = (state={loading:true},action)=>{
     }
 }
 
-export const userRegisterReducer = (state={loading:true},action)=>{
+export const userRegisterReducer = (state={lodi:false,load:false},action)=>{
     switch(action.type){
         case USER_REGISTER_REQUEST:
-            return {loading:true}
+            return {load:false}
         
         case USER_REGISTER_SUCCESS:
-            return {loading:false,userInfo:action.payload}
+            return {lodi:true,userInfo:action.payload}
 
         case USER_REGISTER_FAIL:
-            return {loading:false,error:action.payload}
+            return {load:false,error:action.payload}
         case USER_SIGNOUT:
             return {}
 

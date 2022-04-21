@@ -9,17 +9,26 @@ import GoogleAuth from './googleAuth'
 import {toast,ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import useStyles from './style';
+import { useEffect } from 'react'
+import { SettingsCellOutlined } from '@material-ui/icons'
+import { SliderThumb } from '@mui/material'
 
 const initialData = {name:'',password:'',confirmPassword:'',email:''}
 const Auth = () => {
     const [formData,setFormData] =useState(initialData)
     const [isSignup,setIsSignup] = useState(false)
+    const [data,setData] = useState(JSON.parse(localStorage.getItem('profile')))
+     const d = useState(JSON.parse(localStorage.getItem('profile')))
+     const [show,setShow] = useState(true)
+     const [hum,setHum] = useState(true)
     const classes = useStyles();
     const user = useSelector(state=>state.userRegister)
     let userSignin = useSelector(state=>state.userSignin)
-    console.log(userSignin,'user');
+    console.log(user,'user',data,data);
     let {error,loading} = userSignin
-    loading=true
+    let {load,userInfo,lodi} = user
+    //loading=true
+    
     
     const dispatch = useDispatch()
     const history = useNavigate()
@@ -30,38 +39,74 @@ const Auth = () => {
   
     const handleSubmit=(e) => {
        e.preventDefault()
+       
        if(isSignup){
         
           
-         
-         if(formData.password===formData.confirmPassword){
+        
+           if(formData.password===formData.confirmPassword){
+            
             dispatch(signup(formData.name,formData.email,formData.password,history))
-            return toast.success('successfully created account, please signin')
-         }if(formData.password!==formData.confirmPassword){
-          return toast.error('password and confirmPassword are not equal')
-         }
-         if(!loading){
-           return toast.error(`user already exists with this ${formData.email}`)
-         }
-          
-          
-       }
+            setShow(load)
+           
+            // if(userInfo){
+            //   return toast.success('successfully created account, please signin')
+            // }
+           
+             setTimeout(() =>{
+             
+           
+              setShow(!load)
+           
+            
+             
+              console.log(show,'pppp');
+              
+           
+           },1000)
+           if(!show){
+            return toast.success(`user already exists with this ${formData.email}`)
+          }
+           }
+           if(formData.password!==formData.confirmPassword){
+            return toast.error('password and confirmPassword are not equal')
+           }
+            
+         
+      }
+       
        else{
         dispatch(signin(formData.email,formData.password,history))
-           
-            if(!loading ){
+           setTimeout(() =>{
+              if(!loading ){
               console.log('hlo');
          
-          return toast.error(`may user or password wrong`)
+                return toast.error(`may user or password wrong`)
+              }
+           },1000)
+            
          
          
-         }
+         
         
        }
 
     }
+    // if(!load){
+    //   return <h2>wrong</h2>
+    // }
   return (
     <div className="appbar">
+   
+    <div className='load'>
+      { 
+        (show===false) &&(<div>{`user already exists with this ${formData.email}`}</div>)
+      }
+    </div>
+   
+   
+    
+   
     <Appbar/>
    
     <div className='main'>

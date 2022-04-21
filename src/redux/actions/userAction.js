@@ -27,7 +27,7 @@ export const signup = (name,email,password,history)=> async (dispatch)=>{
        const { data } = await Axios.post(`${url}/signup`,{ name, email,password })
        console.log(data,'pppp');
         dispatch({type:USER_REGISTER_SUCCESS,payload:data})
-        dispatch({type:USER_SIGNIN_SUCCESS,payload:data})
+       // dispatch({type:USER_SIGNIN_SUCCESS,payload:data})
         
         localStorage.setItem('profile',JSON.stringify(data))
         //history('/',{replace:true})
