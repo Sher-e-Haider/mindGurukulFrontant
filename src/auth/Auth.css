@@ -8,12 +8,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-   border: 1px solid red;
+  
     height:75vh;
 }
-.appbar{
-    border: 1px solid red;
-}
+
 .all{
      display: flex;
      flex-direction: column;
@@ -66,7 +64,7 @@ input{
     
 }
 .whole{
-    border: 1px solid red;
+   
     overflow:hidden;
 }
 
