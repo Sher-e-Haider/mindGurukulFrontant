@@ -9,18 +9,13 @@ import GoogleAuth from './googleAuth'
 import {toast,ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import useStyles from './style';
-import { useEffect } from 'react'
-import { SettingsCellOutlined } from '@material-ui/icons'
-import { SliderThumb } from '@mui/material'
 
 const initialData = {name:'',password:'',confirmPassword:'',email:''}
 const Auth = () => {
     const [formData,setFormData] =useState(initialData)
     const [isSignup,setIsSignup] = useState(false)
-    const [data,setData] = useState(JSON.parse(localStorage.getItem('profile')))
-     const d = useState(JSON.parse(localStorage.getItem('profile')))
+    const data = (JSON.parse(localStorage.getItem('profile')))
      const [show,setShow] = useState(true)
-     const [hum,setHum] = useState(true)
     const classes = useStyles();
     const user = useSelector(state=>state.userRegister)
     let userSignin = useSelector(state=>state.userSignin)
@@ -92,9 +87,7 @@ const Auth = () => {
        }
 
     }
-    // if(!load){
-    //   return <h2>wrong</h2>
-    // }
+   
   return (
     <div className="appbar">
    
