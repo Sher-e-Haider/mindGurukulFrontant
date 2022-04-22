@@ -8,13 +8,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-   
-    height:80vh;
+   border: 1px solid red;
+    height:75vh;
+}
+.appbar{
+    border: 1px solid red;
 }
 .all{
      display: flex;
      flex-direction: column;
-   
+    
   overflow:hidden;
    align-items: center;
      justify-content: center;
@@ -51,15 +54,20 @@ input{
 }
 
 .load{
-    position:absolute;
     
-    top: 180px;
-    left: 180px;
+    position: relative;
+    top: 140px;
+   
     padding:2px;
-   color: red;;
+  text-align: center;
+   color: red;
    
 
     
+}
+.whole{
+    border: 1px solid red;
+    overflow:hidden;
 }
 
 @media screen and (max-width:490px){

@@ -89,14 +89,17 @@ const Auth = () => {
     }
    
   return (
+    <div className='whole'>
+ 
+   
     <div className="appbar">
    
-    <div className='load'>
+   
+   <div className='load'>
       { 
         (show===false) &&(<div>{`user already exists with this ${formData.email}`}</div>)
       }
     </div>
-   
    
     
    
@@ -158,6 +161,7 @@ const Auth = () => {
        
       </div>
       </form> 
+    </div>
     </div>
     </div>
   )
