@@ -12,32 +12,23 @@ import { signout } from '../../redux/actions/userAction'
 import { useEffect } from 'react'
 
 const Form = ({currentId,setCurrentId,x}) => {
-    const [postData,setPostData] = useState({title:'',note:''})
+    const [postData,setPostData] = useState({userName:'',email:'',phone:''})
     const dispatch=useDispatch()
     const data = useState(JSON.parse(localStorage.getItem('profile')))
     const posts = useSelector(state=>state.alldata)
-    console.log(data,'dataaa');
     const history = useNavigate()
     const handleSubmit=(e)=>{
         e.preventDefault()
-        //  dispatch(getPosts())
-        // if(currentId){
-        //   dispatch(updatePost(currentId,postData))
-        // }else{
-        //   dispatch(createPosts(postData))
-        // }
-        
-      
-          // dispatch(createPosts(postData))
+    
           if (!currentId) {
             dispatch(createPosts({ ...postData, name: data?.result?.name }));
-           console.log('create');
+          
           } else {
             dispatch(updatePost(currentId, { ...postData, name: data?.result?.name }));
            
           }
           setCurrentId(null)
-         setPostData({title:'',note:''})
+         setPostData({userName:'',email:'',phone:''})
        }
       
   return (
@@ -45,21 +36,20 @@ const Form = ({currentId,setCurrentId,x}) => {
     {/* <ToastContainer position="bottom-center" limit={1} /> */}
      <form autoComplete='off' noValidate type='submit' onSubmit={handleSubmit} className='text' >
      <div>
-     <TextField id="outlined-basic" label="Subject" value={postData.title} variant="outlined" onChange={(e)=>setPostData({...postData,title:e.target.value})} />
-      {/* <label htmlFor="title">Title</label> */}
-      {/* <input   id="outlined-basic"  label="Enter Your Item"  value={postData.title} variant="outlined" onChange={(e)=>setPostData({...postData,title:e.target.value})}/>
-      */}
+     <TextField id="outlined-basic" label="UserName" value={postData.userName} variant="outlined" onChange={(e)=>setPostData({...postData,userName:e.target.value})} />
+     
     </div>
-
     <div>
-      <TextField id="outlined-basic" multiline rows={3} label="Yadein" value={postData.note} variant="outlined" onChange={(e)=>setPostData({...postData,note:e.target.value})} />
-        {/* <label htmlFor="title">note</label>
-      <input   id="outlined-basic"  label="Enter Your Item"  value={postData.note} variant="outlined" onChange={(e)=>setPostData({...postData,note:e.target.value})}/>
-  */}
+     <TextField id="outlined-basic" label="Email" value={postData.email} variant="outlined" onChange={(e)=>setPostData({...postData,email:e.target.value})} />
+     
+    </div>
+    <div>
+      <TextField id="outlined-basic" multiline  label="Phone" value={postData.phone} variant="outlined" onChange={(e)=>setPostData({...postData,phone:e.target.value})} />
+       
       </div>
       { 
        data[0]&&
-        <Button disabled={(postData.title==='' || postData.note==='')} type='submit'  variant="contained" >{currentId?<EditIcon />:'submit'}</Button>
+        <Button disabled={(postData.userName==='' || postData.email===''|| postData.phone==='')} type='submit'  variant="contained" >{currentId?<EditIcon />:'submit'}</Button>
       
       
       }
